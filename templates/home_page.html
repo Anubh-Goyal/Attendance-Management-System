@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block head %}
+<title>Attendance Manager</title>
+{% endblock %} {% block body %}
+<body class="landing-page sidebar-collapse">
+  <div
+    class="page-header header-filter"
+    data-parallax="true"
+    style="background-image: url('../static/img/gclassroom.webp')"
+  >
+    <div class="main main-raised col-md-4 mx-auto">
+      <div class="container">
+        <div class="section text-center">
+          <!-- Your content here -->
+          <h1 class="title" style="color: #010a01">Attendance Management System</h1>
+          <h4>An unique solution for both the teachers and students!</h4>
+          <br />
+          {% with messages = get_flashed_messages() %} {% if messages: %} {% for
+          message in messages: %}
+          <h4>{{ message }}</h4>
+          {% endfor %} {% endif %} {% endwith %}
+          <form action="/student_login" method="GET">
+            <button type="submit" class="btn-primary btn-raised btn-lg">
+              <i class="fa fa-user-circle-o"></i>
+              Student log in/sign up
+            </button>
+          </form>
+          <form action="/teacher_login" method="GET">
+            <button type="submit" class="btn-primary btn-raised btn-lg">
+              <i class="fa fa-user-circle-o"></i>
+              Teacher log in/sign up
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</body>
